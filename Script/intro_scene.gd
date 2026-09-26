@@ -1,4 +1,4 @@
-extends Control
+class_name Intro extends Control
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,10 +12,10 @@ func _process(delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	await get_tree().create_timer(0.3)
+	await get_tree().create_timer(0.3).timeout
 	get_tree().change_scene_to_file("res://Scene/MainScene.tscn")
 
 
 func _on_quit_button_pressed() -> void:
-	await get_tree().create_timer(0.3)
+	await get_tree().create_timer(0.3).timeout
 	get_tree().quit()

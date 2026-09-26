@@ -22,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_vvwfm")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=225209132]
@@ -31,10 +32,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.92156863, 0.78039217, 0.4117647, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1916090821]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1365609990]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1916090821]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -48,33 +51,35 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
-[node name="PlayButton" type="TextureButton" parent="VBoxContainer" unique_id=1450592724]
+[node name="PlayButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=1450592724]
 layout_mode = 2
 texture_normal = ExtResource("1_k8haa")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PlayButton" unique_id=718738746]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/PlayButton" unique_id=718738746]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = SubResource("Theme_qrgkb")
 text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=730366836]
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=730366836]
 layout_mode = 2
 texture_normal = ExtResource("1_k8haa")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/QuitButton" unique_id=783556206]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/QuitButton" unique_id=783556206]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -107,5 +112,5 @@ theme = SubResource("Theme_6l33x")
 text = "Roots"
 label_settings = SubResource("LabelSettings_70blk")
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
