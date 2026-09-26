@@ -1,0 +1,109 @@
+{
+	"categories": [
+		{
+			"uuid": "2de1ac73-503f-4050-bac4-876481575f59",
+			"title": "Task",
+			"color": "569eff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "18dd2c3e-6c89-4e95-a08e-fed0bc3c2b46",
+			"title": "Todo",
+			"tasks": [
+				"4e81e5bb-0265-46c3-bf21-91c7a6b32cb3"
+			]
+		},
+		{
+			"uuid": "dc341622-3ed2-40fa-9213-b8567fcb5def",
+			"title": "Doing",
+			"tasks": [
+				"586174ce-06ee-4c3e-977f-4ed846440cea",
+				"59cefde5-85ce-4dfb-a133-e249b26c60ca"
+			]
+		},
+		{
+			"uuid": "61f91613-9f5f-4607-b4a5-f5aa6ff84fd5",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "4e81e5bb-0265-46c3-bf21-91c7a6b32cb3",
+			"title": "Assets",
+			"description": "A lot of art needed",
+			"category": "2de1ac73-503f-4050-bac4-876481575f59",
+			"steps": [
+				{
+					"details": "Tree, Sapling, Plant",
+					"done": false
+				},
+				{
+					"details": "Vines",
+					"done": false
+				},
+				{
+					"details": "sun",
+					"done": false
+				},
+				{
+					"details": "Simple background",
+					"done": false
+				},
+				{
+					"details": "Ground asset",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "586174ce-06ee-4c3e-977f-4ed846440cea",
+			"title": "Main Menu",
+			"description": "Art needed (vines)\nFont (Maybe custom if no time)\n",
+			"category": "2de1ac73-503f-4050-bac4-876481575f59",
+			"steps": []
+		},
+		{
+			"uuid": "59cefde5-85ce-4dfb-a133-e249b26c60ca",
+			"title": "Code",
+			"description": "",
+			"category": "2de1ac73-503f-4050-bac4-876481575f59",
+			"steps": [
+				{
+					"details": "Tree\nClicakble\n\"Upgrading\"\n",
+					"done": false
+				},
+				{
+					"details": "Stats",
+					"done": false
+				},
+				{
+					"details": "Upgrades",
+					"done": false
+				},
+				{
+					"details": "Shop",
+					"done": false
+				},
+				{
+					"details": "Shop",
+					"done": false
+				}
+			]
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"18dd2c3e-6c89-4e95-a08e-fed0bc3c2b46"
+			],
+			[
+				"dc341622-3ed2-40fa-9213-b8567fcb5def"
+			],
+			[
+				"61f91613-9f5f-4607-b4a5-f5aa6ff84fd5"
+			]
+		]
+	}
+}
