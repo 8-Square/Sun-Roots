@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://ckp0oo3hswaqh" path="res://Script/shop.gd" id="7_u8a2y"]
 [ext_resource type="PackedScene" uid="uid://bd731r05e650w" path="res://Scene/ShopUpgrade.tscn" id="8_e7n4u"]
 [ext_resource type="PackedScene" uid="uid://xwbtqiktpr4v" path="res://Scene/ClickPopup.tscn" id="11_so1si"]
+[ext_resource type="AudioStream" uid="uid://djfcay3jsbb40" path="res://Audio/leaves_rustling.mp3" id="12_h4sd3"]
+[ext_resource type="AudioStream" uid="uid://8gvovr2a3kvu" path="res://Audio/menu_click.mp3" id="13_fr17n"]
 
 [sub_resource type="Theme" id="Theme_nr04c"]
 default_font = ExtResource("4_l7vlk")
@@ -290,6 +292,16 @@ autostart = true
 [node name="SaveTimer" type="Timer" parent="." unique_id=222920724]
 wait_time = 15.0
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=263515361]
+stream = ExtResource("12_h4sd3")
+volume_db = -8.0
+max_polyphony = 10
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="." unique_id=1294546882]
+stream = ExtResource("13_fr17n")
+volume_db = -1.0
+max_polyphony = 7
 
 [connection signal="pressed" from="CanvasLayer/Character" to="." method="_on_character_pressed"]
 [connection signal="pressed" from="CanvasLayer/Upgrades" to="." method="_on_upgrades_pressed"]

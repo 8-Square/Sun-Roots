@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dmr2t0mse8d3m" path="res://Asset/augiepixel.ttf" id="2_vvwfm"]
 [ext_resource type="Texture2D" uid="uid://oq3p1lgmxgud" path="res://Asset/green_pressed_rectangle.png" id="3_t0bfu"]
 [ext_resource type="Texture2D" uid="uid://byavy0sdes7q2" path="res://Asset/mainMenu.png" id="3_vgon5"]
+[ext_resource type="AudioStream" uid="uid://8gvovr2a3kvu" path="res://Audio/menu_click.mp3" id="7_4s16f"]
 
 [sub_resource type="Theme" id="Theme_qrgkb"]
 default_font = ExtResource("2_vvwfm")
@@ -153,6 +154,11 @@ grow_horizontal = 2
 theme = SubResource("Theme_6l33x")
 text = "Roots"
 label_settings = SubResource("LabelSettings_70blk")
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="." unique_id=269488095]
+stream = ExtResource("7_4s16f")
+volume_db = -1.0
+max_polyphony = 5
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

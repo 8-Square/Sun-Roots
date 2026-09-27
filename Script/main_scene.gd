@@ -5,6 +5,7 @@ class_name Main extends Node2D
 @onready var sunlight_label: Label = $CanvasLayer/HBoxContainer/SunlightDisplay/SunlightLabel
 @onready var water_label: Label = $CanvasLayer/HBoxContainer/WaterDisplay/WaterLabel
 @onready var shop: Control = $CanvasLayer/OverallShop
+@onready var menu_click: AudioStreamPlayer = $MenuClick
 
 var save_pref: SaveManager
 
@@ -55,16 +56,19 @@ func _on_character_pressed() -> void:
 	sunlight += spc
 	update_values()
 	spawn_click_popup()
+	$AudioStreamPlayer.play()
 
 
 func _on_upgrades_pressed() -> void:
 	save_values()
+	menu_click.play()
 	await get_tree().create_timer(0.3).timeout
 	shop.visible = true
 	
 
 func _on_exit_pressed() -> void:
 	save_values()
+	menu_click.play()
 	await get_tree().create_timer(0.3).timeout
 	get_tree().change_scene_to_file("res://Scene/IntroScene.tscn")
 
@@ -109,6 +113,7 @@ func buy_upgrade(upgrade: Upgrade) -> bool:
 	recalculate_stats()
 	update_values()
 	shop.refresh_level_overview()
+	menu_click.play()
 	return true
 
 # 15 second timer that updates stats if nothing has been clicked

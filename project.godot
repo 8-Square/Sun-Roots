@@ -11,6 +11,9 @@ config_version=5
 [application]
 
 config/name="Sun&Roots"
+config/description="An idle clicker game made for Cozy Fall Jam 2026"
+config/version="1.0.1"
+run/main_scene="uid://crqjlu82o0tlj"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://Asset/icon.svg"
 
