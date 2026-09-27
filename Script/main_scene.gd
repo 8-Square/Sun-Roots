@@ -4,7 +4,7 @@ class_name Main extends Node2D
 @export var sun_texture: Texture2D
 @onready var sunlight_label: Label = $CanvasLayer/HBoxContainer/SunlightDisplay/SunlightLabel
 @onready var water_label: Label = $CanvasLayer/HBoxContainer/WaterDisplay/WaterLabel
-@onready var shop: Control = $CanvasLayer/OverallShop/Shop
+@onready var shop: Control = $CanvasLayer/OverallShop
 
 var save_pref: SaveManager
 
@@ -61,6 +61,7 @@ func _on_upgrades_pressed() -> void:
 	save_values()
 	await get_tree().create_timer(0.3).timeout
 	shop.visible = true
+	
 
 func _on_exit_pressed() -> void:
 	save_values()
@@ -107,6 +108,7 @@ func buy_upgrade(upgrade: Upgrade) -> bool:
 	upgrade.level += 1
 	recalculate_stats()
 	update_values()
+	shop.refresh_level_overview()
 	return true
 
 # 15 second timer that updates stats if nothing has been clicked
@@ -121,3 +123,9 @@ func spawn_click_popup() -> void:
 	var random_pos = Vector2(randf_range(-80, 80), randf_range(-80, 80))
 	popup.global_position = $CanvasLayer/Character.global_position + random_pos
 	popup.setup(floori(spc), sun_texture)
+
+
+func _on_passive_timer_timeout() -> void:
+	sunlight += sps
+	water += wps
+	update_values()

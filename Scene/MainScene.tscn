@@ -227,7 +227,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_l7vlk")
 theme_override_font_sizes/font_size = 25
-text = "Clicks lv:"
+text = "Clicks Lv:"
 
 [node name="RootLevelLabel" type="Label" parent="CanvasLayer/OverallShop/LevelOverview/VBoxContainer" unique_id=1979352839]
 layout_mode = 2
@@ -282,7 +282,10 @@ text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="." unique_id=222920724]
+[node name="PassiveTimer" type="Timer" parent="." unique_id=207336854]
+autostart = true
+
+[node name="SaveTimer" type="Timer" parent="." unique_id=222920724]
 wait_time = 15.0
 autostart = true
 
@@ -290,4 +293,5 @@ autostart = true
 [connection signal="pressed" from="CanvasLayer/Upgrades" to="." method="_on_upgrades_pressed"]
 [connection signal="gui_input" from="CanvasLayer/OverallShop/SecretOoglyBooglyShopHider" to="." method="_on_secret_oogly_boogly_shop_hider_gui_input"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PassiveTimer" to="." method="_on_passive_timer_timeout"]
+[connection signal="timeout" from="SaveTimer" to="." method="_on_timer_timeout"]

@@ -32,3 +32,16 @@ func refresh_rows() -> void:
 	root_row.refresh_cost()
 	leaf_row.refresh_cost()
 	fertilizer_row.refresh_cost()
+	refresh_level_overview()
+
+func refresh_level_overview() -> void:
+	for upgrade in upgrades:
+		var label_text = "Lv: " + str(upgrade.level)
+		if upgrade.id == "click":
+			click_level_label.text = "click " + label_text
+		elif upgrade.id == "root":
+			root_level_label.text = "root " + label_text
+		elif upgrade.id == "leaf":
+			leaf_level_label.text = "leaf " + label_text
+		elif upgrade.id == "fertilizer":
+			fertilizer_level_label.text = "fertilizer " + label_text
