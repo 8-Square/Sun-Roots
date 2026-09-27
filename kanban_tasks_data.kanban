@@ -10,16 +10,15 @@
 		{
 			"uuid": "18dd2c3e-6c89-4e95-a08e-fed0bc3c2b46",
 			"title": "Todo",
-			"tasks": [
-				"4e81e5bb-0265-46c3-bf21-91c7a6b32cb3"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "dc341622-3ed2-40fa-9213-b8567fcb5def",
 			"title": "Doing",
 			"tasks": [
 				"586174ce-06ee-4c3e-977f-4ed846440cea",
-				"59cefde5-85ce-4dfb-a133-e249b26c60ca"
+				"59cefde5-85ce-4dfb-a133-e249b26c60ca",
+				"4e81e5bb-0265-46c3-bf21-91c7a6b32cb3"
 			]
 		},
 		{
@@ -45,7 +44,7 @@
 				},
 				{
 					"details": "sun",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Simple background",
@@ -88,7 +87,7 @@
 				},
 				{
 					"details": "Shop",
-					"done": false
+					"done": true
 				}
 			]
 		}

@@ -2,53 +2,60 @@ class_name Main extends Node2D
 
 @onready var sunlight_label: Label = $CanvasLayer/HBoxContainer/SunlightDisplay/SunlightLabel
 @onready var water_label: Label = $CanvasLayer/HBoxContainer/WaterDisplay/WaterLabel
-@onready var shop: Panel = $CanvasLayer/Shop
 @onready var shop_panel: Control = $CanvasLayer/SecretOoglyBooglyShopHider
+@onready var shop: Shop = $CanvasLayer/Shop
 
 var save_pref: SaveManager
 
 
+
 var sunlight: float = 0.0
 var spc: float = 1 # sun per click
+var sps: float = 1 # sun per second
 
 var water: float = 0.0
-var wpc: float = 0.0 # water per click
+var wps: float = 0.0 # water per click
 
+var base_spc: float = 1.0
+var base_sps: float = 0.0
+var base_wps: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	save_pref = SaveManager.load_or_create()
 	# loads the save pref ones
 	sunlight = save_pref.sunlight
-	spc = save_pref.spc
 	water = save_pref.water
-	wpc = save_pref.wpc
 	
+	for upgrade in shop.upgrades:
+		if save_pref.upgrade_levels.has(upgrade.id):
+			upgrade.level = save_pref.upgrade_levels[upgrade.id]
 	shop.visible = false
 	shop_panel.visible = false
+	recalculate_stats()
+	update_values()
 
 
 func save_values(): 
 	save_pref.sunlight = sunlight
-	save_pref.spc = spc
 	save_pref.water = water
-	save_pref.wpc = wpc
+	for upgrade in shop.upgrades:
+		save_pref.upgrade_levels[upgrade.id] = upgrade.level
 	save_pref.save()
-
+#
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	update_sunlight_value(sunlight)
-	update_water_value(water)
+#func _process(delta: float) -> void:
+	#update_values()
 
 
 # RAHH I GOT NO IDEA HOW TO MAKE THEM UPDATE THEIR OWN LABELS WITHOUT TWO FUNCTIons RAHH
-func update_sunlight_value(value):
-	sunlight_label.text = str(value)
-func update_water_value(value):
-	water_label.text = str(value)
+func update_values():
+	sunlight_label.text = str(floori(sunlight))
+	water_label.text = str(floori(water))
 
 func _on_character_pressed() -> void:
 	sunlight += spc
+	update_values()
 
 
 func _on_upgrades_pressed() -> void:
@@ -67,3 +74,45 @@ func _on_secret_oogly_boogly_shop_hider_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		shop.visible = false
 		shop_panel.visible = false
+
+func recalculate_stats() -> void:
+	spc = base_spc
+	sps = base_sps
+	wps = base_wps
+	
+	var fertilizer_multiplier = 1.0
+	for upgrade in shop.upgrades:
+		var bonus = upgrade.level * upgrade.effect
+		if upgrade.id == "click":
+			spc += bonus
+		elif upgrade.id == "root":
+			wps += bonus
+		elif upgrade.id == "leaf":
+			sps += bonus
+		elif upgrade.id == "fertilizer":
+			fertilizer_multiplier += upgrade.level * upgrade.effect
+	sps *= fertilizer_multiplier
+	wps *= fertilizer_multiplier
+
+func buy_upgrade(upgrade: Upgrade) -> bool:
+	var cost = upgrade.get_cost()
+	var current_amount = sunlight if upgrade.currency == "Sunlight" else water
+	
+	# if not enough, don't allow
+	if current_amount < cost: 
+		return false
+	
+	if upgrade.currency == "Sunlight":
+		sunlight -= cost
+	else:
+		water -= cost
+	
+	upgrade.level += 1
+	recalculate_stats()
+	update_values()
+	return true
+
+# 15 second timer that updates stats if nothing has been clicked
+func _on_timer_timeout() -> void:
+	update_values()
+	save_values()

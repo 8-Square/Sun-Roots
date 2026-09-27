@@ -5,13 +5,28 @@
 [ext_resource type="Texture2D" uid="uid://cl2ihbxsvhmk5" path="res://Asset/green.png" id="2_rfu1n"]
 [ext_resource type="FontFile" uid="uid://dmr2t0mse8d3m" path="res://Asset/augiepixel.ttf" id="4_l7vlk"]
 [ext_resource type="Texture2D" uid="uid://bf6l0y2p8pi2l" path="res://Asset/red_rectangle.png" id="5_ly247"]
+[ext_resource type="Texture2D" uid="uid://dxloogjp40llg" path="res://Asset/sun_small.png" id="5_nr04c"]
+[ext_resource type="Texture2D" uid="uid://cfn0eoewbro8e" path="res://Asset/water_small.png" id="6_i8335"]
+[ext_resource type="Texture2D" uid="uid://b357blrkvttq3" path="res://Asset/Sky.png" id="7_i8335"]
+[ext_resource type="Script" uid="uid://ckp0oo3hswaqh" path="res://Script/shop.gd" id="7_u8a2y"]
+[ext_resource type="PackedScene" uid="uid://bd731r05e650w" path="res://Scene/ShopUpgrade.tscn" id="8_e7n4u"]
 
 [sub_resource type="Theme" id="Theme_nr04c"]
 default_font = ExtResource("4_l7vlk")
 default_font_size = 23
 
-[node name="MainScene" type="Node2D" unique_id=450388951]
+[sub_resource type="LabelSettings" id="LabelSettings_6l33x"]
+font = ExtResource("4_l7vlk")
+font_size = 30
+
+[node name="MainScene" type="Node2D" unique_id=450388951 groups=["main"]]
 script = ExtResource("1_hcm6b")
+
+[node name="BackgroundSky" type="TextureRect" parent="." unique_id=1242096226]
+modulate = Color(0.85929114, 0.8592911, 0.8592911, 1)
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("7_i8335")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=320742431]
 
@@ -58,16 +73,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1937684513]
-z_index = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -51.5
+offset_top = 8.0
+offset_right = 51.5
+offset_bottom = 31.0
 grow_horizontal = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
+scale = Vector2(3, 3)
+pivot_offset_ratio = Vector2(0.5, 0)
+size_flags_vertical = 3
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="SunlightDisplay" type="HBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=444110424]
@@ -76,9 +93,13 @@ size_flags_horizontal = 3
 
 [node name="SunlightIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer/SunlightDisplay" unique_id=1742395103]
 layout_mode = 2
+texture = ExtResource("5_nr04c")
+expand_mode = 2
 
 [node name="SunlightLabel" type="Label" parent="CanvasLayer/HBoxContainer/SunlightDisplay" unique_id=1805990649]
 layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_6l33x")
 
 [node name="WaterDisplay" type="HBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=867951858]
 layout_mode = 2
@@ -86,9 +107,12 @@ size_flags_horizontal = 3
 
 [node name="WaterIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer/WaterDisplay" unique_id=2004184221]
 layout_mode = 2
+texture = ExtResource("6_i8335")
+expand_mode = 2
 
 [node name="WaterLabel" type="Label" parent="CanvasLayer/HBoxContainer/WaterDisplay" unique_id=65322691]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_6l33x")
 
 [node name="SecretOoglyBooglyShopHider" type="Control" parent="CanvasLayer" unique_id=995434428]
 layout_mode = 3
@@ -105,16 +129,46 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -489.0
+offset_left = -404.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 10
 size_flags_vertical = 3
+script = ExtResource("7_u8a2y")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Shop" unique_id=391023911]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -154.0
+offset_right = 100.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 10
+
+[node name="ClickRow" parent="CanvasLayer/Shop/VBoxContainer" unique_id=247150675 instance=ExtResource("8_e7n4u")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RootRow" parent="CanvasLayer/Shop/VBoxContainer" unique_id=1717374898 instance=ExtResource("8_e7n4u")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeafRow" parent="CanvasLayer/Shop/VBoxContainer" unique_id=2133302353 instance=ExtResource("8_e7n4u")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FertilizerRow" parent="CanvasLayer/Shop/VBoxContainer" unique_id=944818141 instance=ExtResource("8_e7n4u")]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Shop" unique_id=1623180583]
 layout_mode = 1
@@ -130,10 +184,6 @@ theme_override_font_sizes/normal_font_size = 85
 text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="BackgroundSky" type="TextureRect" parent="." unique_id=1242096226]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="BackgroundGround" type="TextureRect" parent="." unique_id=370792986]
 anchors_preset = 15
@@ -170,7 +220,12 @@ text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="." unique_id=222920724]
+wait_time = 15.0
+autostart = true
+
 [connection signal="pressed" from="CanvasLayer/Character" to="." method="_on_character_pressed"]
 [connection signal="pressed" from="CanvasLayer/Upgrades" to="." method="_on_upgrades_pressed"]
 [connection signal="gui_input" from="CanvasLayer/SecretOoglyBooglyShopHider" to="." method="_on_secret_oogly_boogly_shop_hider_gui_input"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

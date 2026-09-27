@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bmjbq2v8jxlqn"]
+
+[ext_resource type="Texture2D" uid="uid://cfn0eoewbro8e" path="res://Asset/water_small.png" id="1_7iyi2"]
+[ext_resource type="Script" uid="uid://c2ehhant3t00d" path="res://Script/upgrade.gd" id="2_7xden"]
+
+[resource]
+script = ExtResource("2_7xden")
+id = "fertilizer"
+display_name = "Fertilizer"
+description = "10% Increased stats"
+currency = "Water"
+currency_icon = ExtResource("1_7iyi2")
+base_cost = 200.0
+cost_multiplier = 1.3
+effect = 0.1
+metadata/_custom_type_script = "uid://c2ehhant3t00d"
