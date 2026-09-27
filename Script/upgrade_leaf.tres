@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2ehhant3t00d" path="res://Script/upgrade.gd" id="1_ahdpn"]
 [ext_resource type="Texture2D" uid="uid://cfn0eoewbro8e" path="res://Asset/water_small.png" id="1_obtlj"]
+[ext_resource type="Texture2D" uid="uid://cu22d37uhld13" path="res://Asset/leaf.png" id="2_okw08"]
 
 [resource]
 script = ExtResource("1_ahdpn")
@@ -10,7 +11,8 @@ display_name = "Grow Leaves"
 description = "Increase your leaves"
 currency = "Water"
 currency_icon = ExtResource("1_obtlj")
-base_cost = 50.0
+base_cost = 60.0
 cost_multiplier = 1.15
-effect = 0.5
+effect = 1.0
+icon = ExtResource("2_okw08")
 metadata/_custom_type_script = "uid://c2ehhant3t00d"

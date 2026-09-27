@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cdproymfab0up"]
 
 [ext_resource type="Script" uid="uid://57g2sb7d4yq7" path="res://Script/main_scene.gd" id="1_hcm6b"]
-[ext_resource type="Texture2D" uid="uid://ck6dy5cuxsous" path="res://Asset/plant.svg" id="1_uptpg"]
 [ext_resource type="Texture2D" uid="uid://cl2ihbxsvhmk5" path="res://Asset/green.png" id="2_rfu1n"]
 [ext_resource type="FontFile" uid="uid://dmr2t0mse8d3m" path="res://Asset/augiepixel.ttf" id="4_l7vlk"]
 [ext_resource type="Texture2D" uid="uid://bf6l0y2p8pi2l" path="res://Asset/red_rectangle.png" id="5_ly247"]
 [ext_resource type="Texture2D" uid="uid://dxloogjp40llg" path="res://Asset/sun_small.png" id="5_nr04c"]
+[ext_resource type="Texture2D" uid="uid://djsh5u6cir151" path="res://Asset/tree.png" id="5_so1si"]
 [ext_resource type="Texture2D" uid="uid://cfn0eoewbro8e" path="res://Asset/water_small.png" id="6_i8335"]
 [ext_resource type="Texture2D" uid="uid://b357blrkvttq3" path="res://Asset/Sky.png" id="7_i8335"]
 [ext_resource type="Script" uid="uid://ckp0oo3hswaqh" path="res://Script/shop.gd" id="7_u8a2y"]
@@ -45,8 +45,9 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.7, 1.7)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture_normal = ExtResource("1_uptpg")
+texture_normal = ExtResource("5_so1si")
 
 [node name="Upgrades" type="TextureButton" parent="CanvasLayer" unique_id=702208475]
 anchors_preset = 3
@@ -278,6 +279,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_nr04c")
+theme_override_font_sizes/normal_font_size = 45
 text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1

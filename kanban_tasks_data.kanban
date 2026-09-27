@@ -36,11 +36,11 @@
 			"steps": [
 				{
 					"details": "Tree, Sapling, Plant",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Vines",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "sun",
@@ -48,11 +48,11 @@
 				},
 				{
 					"details": "Simple background",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Ground asset",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Fertilizer",
@@ -60,7 +60,7 @@
 				},
 				{
 					"details": "Leaf",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Mouse Click",
@@ -68,7 +68,7 @@
 				},
 				{
 					"details": "Root",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -87,7 +87,7 @@
 			"steps": [
 				{
 					"details": "Tree\nClicakble\n\"Upgrading\"\n",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Stats",

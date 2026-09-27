@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2ehhant3t00d" path="res://Script/upgrade.gd" id="1_islm6"]
 [ext_resource type="Texture2D" uid="uid://dxloogjp40llg" path="res://Asset/sun_small.png" id="1_nuche"]
+[ext_resource type="Texture2D" uid="uid://detmv7xuhl62s" path="res://Asset/root.png" id="2_4j0aj"]
 
 [resource]
 script = ExtResource("1_islm6")
@@ -10,7 +11,8 @@ display_name = "Grow Roots"
 description = "Increase your roots"
 currency = "Sunlight"
 currency_icon = ExtResource("1_nuche")
-base_cost = 40.0
-cost_multiplier = 1.1
-effect = 0.6
+base_cost = 80.0
+cost_multiplier = 1.15
+effect = 0.8
+icon = ExtResource("2_4j0aj")
 metadata/_custom_type_script = "uid://c2ehhant3t00d"

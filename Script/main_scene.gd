@@ -12,7 +12,7 @@ var save_pref: SaveManager
 
 var sunlight: float = 0.0
 var spc: float = 1 # sun per click
-var sps: float = 1 # sun per second
+var sps: float = 0 # sun per second
 
 var water: float = 0.0
 var wps: float = 0.0 # water per click
