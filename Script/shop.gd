@@ -36,7 +36,7 @@ func refresh_rows() -> void:
 
 func refresh_level_overview() -> void:
 	for upgrade in upgrades:
-		var label_text = "Lv: " + str(upgrade.level)
+		var label_text = "Lvl: " + str(upgrade.level)
 		if upgrade.id == "click":
 			click_level_label.text = "click " + label_text
 		elif upgrade.id == "root":

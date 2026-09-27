@@ -53,6 +53,22 @@
 				{
 					"details": "Ground asset",
 					"done": false
+				},
+				{
+					"details": "Fertilizer",
+					"done": true
+				},
+				{
+					"details": "Leaf",
+					"done": false
+				},
+				{
+					"details": "Mouse Click",
+					"done": true
+				},
+				{
+					"details": "Root",
+					"done": false
 				}
 			]
 		},
@@ -75,15 +91,15 @@
 				},
 				{
 					"details": "Stats",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Upgrades",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Shop",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Shop",

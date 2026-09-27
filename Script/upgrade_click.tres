@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2ehhant3t00d" path="res://Script/upgrade.gd" id="1_7gwtp"]
 [ext_resource type="Texture2D" uid="uid://dxloogjp40llg" path="res://Asset/sun_small.png" id="1_estut"]
+[ext_resource type="Texture2D" uid="uid://beiomg3lw8uy5" path="res://Asset/mouse.png" id="2_ojc67"]
 
 [resource]
 script = ExtResource("1_7gwtp")
@@ -11,6 +12,7 @@ description = "Increase your clicks"
 currency = "Sunlight"
 currency_icon = ExtResource("1_estut")
 base_cost = 30.0
-cost_multiplier = 1.5
+cost_multiplier = 1.4
 effect = 1.0
+icon = ExtResource("2_ojc67")
 metadata/_custom_type_script = "uid://c2ehhant3t00d"

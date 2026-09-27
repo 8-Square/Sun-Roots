@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bd731r05e650w"]
 
 [ext_resource type="Texture2D" uid="uid://cfn0eoewbro8e" path="res://Asset/water_small.png" id="1_ll5qo"]
-[ext_resource type="Texture2D" uid="uid://draq08b04pakv" path="res://Asset/green_pressed.png" id="1_ploc6"]
+[ext_resource type="Texture2D" uid="uid://dn06yajd0otr0" path="res://Asset/green_rectangle.png" id="1_urd6o"]
 [ext_resource type="FontFile" uid="uid://dmr2t0mse8d3m" path="res://Asset/augiepixel.ttf" id="2_0fwn2"]
 [ext_resource type="Script" uid="uid://bq27pb2pr33st" path="res://Script/shop_upgrade.gd" id="2_urd6o"]
 [ext_resource type="Texture2D" uid="uid://bf6l0y2p8pi2l" path="res://Asset/red_rectangle.png" id="3_0fwn2"]
@@ -11,7 +11,7 @@ anchors_preset = -1
 anchor_right = -0.01953125
 offset_right = 265.0
 offset_bottom = 75.0
-texture = ExtResource("1_ploc6")
+texture = ExtResource("1_urd6o")
 script = ExtResource("2_urd6o")
 metadata/_edit_use_anchors_ = true
 
@@ -68,9 +68,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -149.0
-offset_top = -25.0
+offset_left = -154.0
+offset_top = -30.0
 offset_right = -88.0
+offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -89,21 +90,20 @@ vertical_alignment = 1
 
 [node name="BuyButton" type="TextureButton" parent="." unique_id=1393019380]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.97
-anchor_top = 0.9866667
-anchor_right = 0.97
-anchor_bottom = 0.9866667
-offset_left = -122.0
-offset_top = -50.0
-offset_right = -2.0
-offset_bottom = -2.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -56.0
+offset_right = -6.0
+offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset_ratio = Vector2(1, 1)
 texture_normal = ExtResource("3_0fwn2")
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="BuyButton" unique_id=515832490]
 layout_mode = 1

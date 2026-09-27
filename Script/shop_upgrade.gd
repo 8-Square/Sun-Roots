@@ -12,7 +12,6 @@ func setup(_upgrade: Upgrade, _main_ref: Node) -> void:
 	$Description.text = upgrade.description
 	refresh_cost()
 	$HBoxContainer/CurrencyIcon.texture = upgrade.currency_icon
-	
 
 
 func _on_buy_button_pressed() -> void:
