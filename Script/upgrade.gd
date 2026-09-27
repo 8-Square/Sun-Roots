@@ -14,24 +14,3 @@ class_name Upgrade extends Resource
 
 func get_cost() -> float:
 	return base_cost * pow(cost_multiplier, level)
-
-#func _init(
-#_id:String,
- #_display_name:String,
- #_description:String,
- #_currency:String,
-#_base_cost: float,
-#_cost_multiplier: float,
-#_level: int,
-#_effect_per_level: float,
-#_icon: Texture2D
-#) -> void:
-	#id = _id
-	#display_name = _display_name
-	#description = _description
-	#currency = _currency
-	#base_cost = _base_cost
-	#cost_multiplier = _cost_multiplier
-	#level = _level
-	#effect_per_level = _effect_per_level
-	#icon = _icon

@@ -10,11 +10,14 @@ func setup(_upgrade: Upgrade, _main_ref: Node) -> void:
 	$Icon.texture = upgrade.icon
 	$DisplayName.text = upgrade.display_name
 	$Description.text = upgrade.description
-	$HBoxContainer/Cost.text = str(floori(upgrade.get_cost()))
+	refresh_cost()
 	$HBoxContainer/CurrencyIcon.texture = upgrade.currency_icon
 	
 
 
 func _on_buy_button_pressed() -> void:
 	if main_ref.buy_upgrade(upgrade):
+		refresh_cost()
+
+func refresh_cost() -> void:
 		$HBoxContainer/Cost.text = str(floori(upgrade.get_cost()))

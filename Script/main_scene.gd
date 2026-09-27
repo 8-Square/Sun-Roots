@@ -1,9 +1,10 @@
 class_name Main extends Node2D
 
+@export var click_popup: PackedScene
+@export var sun_texture: Texture2D
 @onready var sunlight_label: Label = $CanvasLayer/HBoxContainer/SunlightDisplay/SunlightLabel
 @onready var water_label: Label = $CanvasLayer/HBoxContainer/WaterDisplay/WaterLabel
-@onready var shop_panel: Control = $CanvasLayer/SecretOoglyBooglyShopHider
-@onready var shop: Shop = $CanvasLayer/Shop
+@onready var shop: Control = $CanvasLayer/OverallShop/Shop
 
 var save_pref: SaveManager
 
@@ -30,8 +31,9 @@ func _ready() -> void:
 	for upgrade in shop.upgrades:
 		if save_pref.upgrade_levels.has(upgrade.id):
 			upgrade.level = save_pref.upgrade_levels[upgrade.id]
+	
+	shop.refresh_rows()
 	shop.visible = false
-	shop_panel.visible = false
 	recalculate_stats()
 	update_values()
 
@@ -42,10 +44,6 @@ func save_values():
 	for upgrade in shop.upgrades:
 		save_pref.upgrade_levels[upgrade.id] = upgrade.level
 	save_pref.save()
-#
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#update_values()
 
 
 # RAHH I GOT NO IDEA HOW TO MAKE THEM UPDATE THEIR OWN LABELS WITHOUT TWO FUNCTIons RAHH
@@ -56,12 +54,12 @@ func update_values():
 func _on_character_pressed() -> void:
 	sunlight += spc
 	update_values()
+	spawn_click_popup()
 
 
 func _on_upgrades_pressed() -> void:
 	save_values()
 	await get_tree().create_timer(0.3).timeout
-	shop_panel.visible = true
 	shop.visible = true
 
 func _on_exit_pressed() -> void:
@@ -73,7 +71,6 @@ func _on_exit_pressed() -> void:
 func _on_secret_oogly_boogly_shop_hider_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		shop.visible = false
-		shop_panel.visible = false
 
 func recalculate_stats() -> void:
 	spc = base_spc
@@ -116,3 +113,11 @@ func buy_upgrade(upgrade: Upgrade) -> bool:
 func _on_timer_timeout() -> void:
 	update_values()
 	save_values()
+
+func spawn_click_popup() -> void:
+	var popup = click_popup.instantiate()
+	$CanvasLayer.add_child(popup)
+	
+	var random_pos = Vector2(randf_range(-80, 80), randf_range(-80, 80))
+	popup.global_position = $CanvasLayer/Character.global_position + random_pos
+	popup.setup(floori(spc), sun_texture)

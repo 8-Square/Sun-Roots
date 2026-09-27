@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://xwbtqiktpr4v"]
+
+[ext_resource type="Script" uid="uid://b47wx8wx8j2jl" path="res://Script/click_popup.gd" id="1_oceda"]
+[ext_resource type="FontFile" uid="uid://dmr2t0mse8d3m" path="res://Asset/augiepixel.ttf" id="2_q0mtt"]
+
+[node name="ClickPopup" type="HBoxContainer" unique_id=1141275528]
+z_index = 5
+offset_right = 5.0
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+script = ExtResource("1_oceda")
+metadata/_edit_use_anchors_ = true
+
+[node name="AmountLabel" type="Label" parent="." unique_id=491563886]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q0mtt")
+theme_override_font_sizes/font_size = 21
+
+[node name="SunIcon" type="TextureRect" parent="." unique_id=767230169]
+layout_mode = 2
